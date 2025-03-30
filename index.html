@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Confirmation</title>
+</head>
+<body>
+    <h1>Email Confirmation</h1>
+    <p>If you are not redirected, click <a id="redirectLink" href="#">here</a>.</p>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const access_token = params.get('access_token');
+        const type = params.get('type');
+
+        if (type === "signup" && access_token) {
+            window.location.href = `settleup://auth?access_token=${access_token}`;
+        } else {
+            document.getElementById("redirectLink").href = `settleup://auth?access_token=${access_token}`;
+        }
+    </script>
+</body>
+</html>
+
