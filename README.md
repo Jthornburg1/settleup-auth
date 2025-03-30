@@ -9,6 +9,5 @@ This repository hosts a simple **email confirmation redirect page** for SettleUp
 3. The page extracts the `access_token` and **redirects mobile users** to the SettleUp app via a deep link (`settleup://auth?access_token=...`).
 4. If opened on a desktop browser, the page provides a manual link to open the app.
 
-## 📂 Project Structure
 
 
