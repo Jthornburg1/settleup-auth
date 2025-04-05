@@ -10,7 +10,7 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const token = urlParams.get('access_token');
+        const token = urlParams.get('token');
 
         if (!token) {
             document.getElementById("status").innerText = "⚠️ Invalid or missing token.";
