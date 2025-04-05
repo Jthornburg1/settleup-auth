@@ -9,16 +9,18 @@
     <h2 id="status">Redirecting to confirm your email...</h2>
 
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const token = urlParams.get('token');
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-        if (!token) {
-            document.getElementById("status").innerText = "⚠️ Invalid or missing token.";
-        } else {
-            // Redirect to Supabase confirmation URL
-            window.location.href = `https://oofucaandohlzbufggcg.supabase.co/auth/v1/callback?token=${token}&type=signup`;
-        }
-    </script>
+    if (!code) {
+        document.getElementById("status").innerText = "⚠️ Missing verification code.";
+    } else if (isMobile) {
+        window.location.href = `settleup://auth?code=${code}`;
+    } else {
+        document.getElementById("status").innerText = `✅ Verified! Now open the app to finish signup. Your code: ${code}`;
+    }
+</script>
 </body>
 </html>
 
